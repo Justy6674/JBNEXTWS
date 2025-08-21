@@ -74,6 +74,7 @@ export default defineType({
           description: 'This is text that will appear within the footer.',
           title: 'Footer Text',
           type: 'string',
+          initialValue: '© 2024 Downscale Weight Loss Clinic. Medicare Provider. AHPRA Registered.',
         }),
         defineField({
           name: 'blackWhiteFooter',

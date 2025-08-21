@@ -43,9 +43,9 @@ export function ContentSection({ contentSection }: PostSectionProps) {
               </div>
               <Link
                 href={href}
-                className="w-fit select-none rounded bg-black px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-pink-200 hover:text-black hover:shadow-[-2px_-2px_0px_black]"
+                className="w-fit select-none rounded bg-green-600 px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-green-700 hover:shadow-lg"
               >
-                {readMoreButton}
+                {readMoreButton || 'Learn More'}
               </Link>
             </div>
           )

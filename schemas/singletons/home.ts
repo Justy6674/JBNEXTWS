@@ -11,9 +11,10 @@ export default defineType({
   fields: [
     defineField({
       name: 'title',
-      description: 'This is the title of your personal website.',
-      title: 'Name/Title',
+      description: 'This is the title of your clinic website.',
+      title: 'Clinic Name',
       type: 'string',
+      initialValue: 'Downscale Weight Loss Clinic',
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -24,18 +25,19 @@ export default defineType({
       fields: [
         defineField({
           name: 'subtitle',
-          description: 'This is the subtitle of your personal website.',
+          description: 'This is the subtitle of your clinic website.',
           title: 'Subtitle/Description',
           type: 'string',
+          initialValue: 'Professional, affordable, lasting weight loss services with first appointment bulk billed under Medicare',
           validation: (rule) => rule.required(),
         }),
         defineField({
           name: 'aboutMeButton',
           description:
-            'This is the text for the button that redirects to the About Me page.',
-          title: 'About Me Button',
+            'This is the text for the button that redirects to the About page.',
+          title: 'About Button',
           type: 'string',
-          initialValue: 'About Me',
+          initialValue: 'Meet Our Team',
           validation: (rule) => rule.required(),
         }),
         defineField({

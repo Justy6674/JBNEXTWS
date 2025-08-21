@@ -3,7 +3,7 @@ import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'projectList',
-  title: 'Project List Page',
+  title: 'Services Page',
   type: 'document',
   icon: UlistIcon,
   // Uncomment below to have edits publish automatically as you type
@@ -11,21 +11,24 @@ export default defineType({
   fields: [
     defineField({
       name: 'pageTitle',
-      description: 'This is the title of the project list page.',
-      title: 'Project List Title',
+      description: 'This is the title of the services page.',
+      title: 'Services Page Title',
       type: 'string',
+      initialValue: 'Our Services',
     }),
     defineField({
       name: 'subtitle',
-      description: 'This is the subtitle of the project list page.',
-      title: 'Project List Subtitle',
+      description: 'This is the subtitle of the services page.',
+      title: 'Services Page Subtitle',
       type: 'string',
+      initialValue: 'Comprehensive weight loss and health management services',
     }),
     defineField({
       name: 'title',
       description: 'This is the page name for the site header/navbar.',
-      title: 'Project List Header/Navbar Title',
+      title: 'Services Header/Navbar Title',
       type: 'string',
+      initialValue: 'Services',
       validation: (rule) => rule.required(),
     }),
   ],
@@ -35,7 +38,7 @@ export default defineType({
     },
     prepare({ pageTitle }) {
       return {
-        title: 'Project List Page',
+        title: 'Services Page',
         subtitle: pageTitle,
       }
     },

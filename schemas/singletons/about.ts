@@ -9,15 +9,17 @@ export default defineType({
   fields: [
     defineField({
       name: 'pageTitle',
-      description: 'This is the title of the About Me page.',
-      title: 'About Me Title',
+      description: 'This is the title of the About page.',
+      title: 'About Page Title',
       type: 'string',
+      initialValue: 'Meet Our Expert Team',
     }),
     defineField({
       name: 'subtitle',
-      description: 'This is the subtitle of the About Me page.',
-      title: 'About Me Subtitle',
+      description: 'This is the subtitle of the About page.',
+      title: 'About Page Subtitle',
       type: 'string',
+      initialValue: 'Dedicated professionals committed to your weight loss journey',
     }),
     defineField({
       name: 'content',
