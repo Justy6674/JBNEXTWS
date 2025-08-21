@@ -5,6 +5,11 @@ export default function ContentHeader(
   props: Pick<PostPayload | ProjectPayload, 'title' | 'date' | 'tags'>
 ) {
   const { title, date, tags } = props
+  
+  if (!title || !date) {
+    return null
+  }
+  
   return (
     <div className="mb-5">
       <h1 className="mb-4 mt-8 text-center text-4xl font-medium italic tracking-tighter md:text-5xl">

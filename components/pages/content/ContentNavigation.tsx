@@ -18,9 +18,17 @@ export default function ContentNavigation({
   content,
   slug,
 }: ContentNavigationProps) {
+  if (!slug || !content?.length) {
+    return null
+  }
+  
   const currentContentIndex = content.findIndex(
     (content: ShowcaseContent) => content.slug === slug
   )
+  
+  if (currentContentIndex === -1) {
+    return null
+  }
 
   const nextContent = content[currentContentIndex + 1]
   const nextContentHref = nextContent
@@ -31,6 +39,10 @@ export default function ContentNavigation({
   const prevContentHref = prevContent
     ? resolveHref(prevContent._type, prevContent.slug)
     : ''
+    
+  if (!nextContentHref && !prevContentHref) {
+    return null
+  }
 
   return (
     <div className="mb-6 mt-12 grid w-full gap-4 sm:grid-cols-2 sm:gap-6">

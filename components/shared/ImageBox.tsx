@@ -1,6 +1,6 @@
 import { urlForImage } from 'lib/sanity.image'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, SyntheticEvent } from 'react'
 
 interface ImageBoxProps {
   image?: { asset?: any }
@@ -19,7 +19,8 @@ export default function ImageBox({
 
   const [aspectRatio, setAspectRatio] = useState(1)
 
-  const handleImageLoad = (event) => {
+  const handleImageLoad = (event: SyntheticEvent<HTMLImageElement>) => {
+    const target = event.target as HTMLImageElement
     setAspectRatio(event.target.naturalWidth / event.target.naturalHeight)
   }
 

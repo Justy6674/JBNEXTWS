@@ -112,7 +112,7 @@ export const projectBySlugQuery = groq`
     coverImage,
     description,
     duration,
-    exc,
+    excerpt,
     site,
     "slug": slug.current,
     tags,

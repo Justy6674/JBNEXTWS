@@ -1,5 +1,6 @@
 import { SiteMeta } from 'components/global/SiteMeta'
-import { notFound } from 'next/navigation'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import type { ProjectPayload, SettingsPayload, ShowcaseContent } from 'types'
 
 import { CustomPortableText } from '../../shared/CustomPortableText'
@@ -22,10 +23,17 @@ export default function ProjectPage({
   homePageTitle,
   preview,
 }: ProjectPageProps) {
+  const router = useRouter()
   const { coverImage, description, excerpt, tags, date, title } = project || {}
 
-  if (!project?.slug && !preview) {
-    notFound()
+  useEffect(() => {
+    if (!project?.slug && !preview) {
+      router.push('/404')
+    }
+  }, [project, preview, router])
+
+  if (!project && !preview) {
+    return null
   }
 
   return (
@@ -39,11 +47,11 @@ export default function ProjectPage({
 
       <Layout settings={settings} preview={preview}>
         <article className="mx-auto max-w-3xl">
-          <ContentHeader title={title} date={date} tags={tags} />
+          <ContentHeader title={title || ''} date={date || ''} tags={tags} />
           <div className="portableText">
             <CustomPortableText value={description} />
           </div>
-          <ContentNavigation content={projects} slug={project.slug} />
+          <ContentNavigation content={projects} slug={project?.slug || ''} />
         </article>
       </Layout>
     </>
