@@ -9,7 +9,7 @@ interface FooterProps {
 }
 
 export function Footer({ footer, socials }: FooterProps) {
-  const { footerText, blackWhiteFooter } = footer
+  const { footerText, blackWhiteFooter } = footer || {}
   return (
     <>
       {blackWhiteFooter && (

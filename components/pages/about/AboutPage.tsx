@@ -23,7 +23,7 @@ export default function AboutPage({
     subtitle = 'Learn more about me!',
     excerpt = 'Learn more about me!',
     content,
-  } = aboutPage
+  } = aboutPage || {}
 
   return (
     <>

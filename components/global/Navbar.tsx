@@ -6,7 +6,7 @@ import { FaBars, FaTimes } from 'react-icons/fa'
 import { SettingsPayload } from 'types'
 
 interface NavbarProps {
-  header: SettingsPayload['header']
+  header?: SettingsPayload['header']
   resume?: SettingsPayload['resume']
 }
 
@@ -14,7 +14,7 @@ export function Navbar({ header, resume }: NavbarProps) {
   const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
 
-  const { menuItems, blackWhiteHeader } = header
+  const { menuItems, blackWhiteHeader } = header || {}
 
   const handleToggle = () => {
     setIsOpen(!isOpen)

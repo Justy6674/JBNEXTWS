@@ -25,7 +25,7 @@ export function Socials({ socials }: SocialsProps) {
     tiktok,
     youtube,
     twitter,
-  } = socials
+  } = socials || {}
 
   return (
     <div className="icons flex justify-center gap-2">

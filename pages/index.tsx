@@ -2,6 +2,7 @@ import { PreviewSuspense } from '@sanity/preview-kit'
 import { HomePage } from 'components/pages/home/HomePage'
 import { PreviewWrapper } from 'components/preview/PreviewWrapper'
 import { getHomePage, getSettings } from 'lib/sanity.client'
+import { fallbackSettings } from 'lib/sanity.fallbacks'
 import { GetStaticProps } from 'next'
 import { lazy } from 'react'
 import { HomePagePayload, SettingsPayload } from 'types'
@@ -73,7 +74,7 @@ export const getStaticProps: GetStaticProps<
   const { preview = false, previewData = {} } = ctx
 
   const token = previewData.token
-  const [settings, page = fallbackPage] = await Promise.all([
+  const [settings = fallbackSettings, page = fallbackPage] = await Promise.all([
     getSettings({ token }),
     getHomePage({ token }),
   ])

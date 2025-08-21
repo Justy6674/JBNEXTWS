@@ -1,5 +1,6 @@
 import { NotFound } from 'components/pages/NotFound'
 import { getHomePageTitle, getSettings } from 'lib/sanity.client'
+import { fallbackSettings } from 'lib/sanity.fallbacks'
 import { GetStaticProps } from 'next'
 import { SettingsPayload } from 'types'
 
@@ -32,7 +33,7 @@ export const getStaticProps: GetStaticProps<
   const { preview = false, previewData = {} } = ctx
 
   const token = previewData.token
-  const [settings, homePageTitle] = await Promise.all([
+  const [settings = fallbackSettings, homePageTitle] = await Promise.all([
     getSettings({ token }),
     getHomePageTitle({ token }),
   ])
@@ -40,7 +41,7 @@ export const getStaticProps: GetStaticProps<
   return {
     props: {
       settings,
-      homePageTitle,
+      homePageTitle: homePageTitle ?? null,
       preview,
       token: previewData.token ?? null,
     },

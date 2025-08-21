@@ -27,7 +27,7 @@ export function ContentListPage({
   preview,
 }: ContentListPageProps) {
   const { pageTitle = 'Content', subtitle = 'Check out my content!' } =
-    contentListHeader
+    contentListHeader || {}
 
   return (
     <>

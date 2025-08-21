@@ -8,6 +8,7 @@ import {
   getProjects,
   getSettings,
 } from 'lib/sanity.client'
+import { fallbackSettings } from 'lib/sanity.fallbacks'
 import { resolveHref } from 'lib/sanity.links'
 import { GetStaticProps } from 'next'
 import { lazy } from 'react'
@@ -100,7 +101,7 @@ export const getStaticProps: GetStaticProps<
     props: {
       project,
       projects,
-      settings,
+      settings: settings ?? fallbackSettings,
       homePageTitle,
       preview,
       token: previewData.token ?? null,

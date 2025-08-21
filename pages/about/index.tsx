@@ -1,5 +1,6 @@
 import AboutPage from 'components/pages/about/AboutPage'
 import { getAboutPage, getHomePageTitle, getSettings } from 'lib/sanity.client'
+import { fallbackSettings } from 'lib/sanity.fallbacks'
 import { GetStaticProps } from 'next'
 import { AboutPagePayload, SettingsPayload } from 'types'
 
@@ -47,9 +48,9 @@ export const getStaticProps: GetStaticProps<
 
   return {
     props: {
-      settings,
-      homePageTitle,
-      aboutPage,
+      settings: settings ?? fallbackSettings,
+      homePageTitle: homePageTitle ?? null,
+      aboutPage: aboutPage ?? null,
       preview,
       token: previewData.token ?? null,
     },

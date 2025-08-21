@@ -1,5 +1,6 @@
 import { SiteMeta } from 'components/global/SiteMeta'
 import { getHomePageTitle, getSettings } from 'lib/sanity.client'
+import { fallbackSettings } from 'lib/sanity.fallbacks'
 import { GetStaticProps } from 'next'
 import { SettingsPayload } from 'types'
 
@@ -49,8 +50,8 @@ export const getStaticProps: GetStaticProps<
 
   return {
     props: {
-      settings,
-      homePageTitle,
+      settings: settings ?? fallbackSettings,
+      homePageTitle: homePageTitle ?? null,
       preview,
       token: previewData.token ?? null,
     },

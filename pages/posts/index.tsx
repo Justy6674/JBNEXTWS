@@ -5,6 +5,7 @@ import {
   getPosts,
   getSettings,
 } from 'lib/sanity.client'
+import { fallbackSettings } from 'lib/sanity.fallbacks'
 import { GetStaticProps } from 'next'
 import { PostListPagePayload, SettingsPayload, ShowcaseContent } from 'types'
 
@@ -57,10 +58,10 @@ export const getStaticProps: GetStaticProps<
 
   return {
     props: {
-      posts,
-      settings,
-      homePageTitle,
-      postListPage,
+      posts: posts ?? [],
+      settings: settings ?? fallbackSettings,
+      homePageTitle: homePageTitle ?? null,
+      postListPage: postListPage ?? null,
       preview,
       token: previewData.token ?? null,
     },
